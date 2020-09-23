@@ -13,7 +13,7 @@ const development =  {
 const production = {
     name : 'production',
     port : process.env.PORT,
-    databaseURL : process.env.MONGO_URL,
+    databaseURL : `mongodb+srv://anurag:${process.env.MONGO_PASS}@usercluster.l6sr9.mongodb.net/<dbname>?retryWrites=true&w=majority`,
     google : {
         clientID : process.env.GOOGLE_CILENT_ID,
         clientSecret : process.env.GOOGLE_SECRET_KEY,

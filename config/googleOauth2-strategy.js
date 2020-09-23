@@ -3,7 +3,6 @@ const { nextTick } = require('process');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/Users');
 const env = require('./environment');
-require('dotenv').config();
 
 passport.use(new GoogleStrategy({
     clientID: env.google.clientID,
