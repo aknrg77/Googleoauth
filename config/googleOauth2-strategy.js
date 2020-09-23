@@ -3,6 +3,7 @@ const { nextTick } = require('process');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const User = require('../models/Users');
 const env = require('./environment');
+require('dotenv').config();
 
 passport.use(new GoogleStrategy({
     clientID: env.google.clientID,
@@ -18,7 +19,7 @@ passport.use(new GoogleStrategy({
     //console.log(accessToken,refreshToken);
     //console.log(profile);
 
-    // if user is found in the google database and codial set this request in req.user
+    // if user is found in the google database and set this request in req.user
 
     if(user){
         return done(null,user);

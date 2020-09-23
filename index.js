@@ -1,15 +1,13 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 4000;
-
+require('dotenv').config();
 const bodyParser = require('body-parser')
 const passport = require('passport');
 const session = require('express-session');
 
 //saving the users information (don't need to login ) after server restart
 const MongoStore = require('connect-mongo')(session);
-
-
 
 
 app.use(bodyParser.urlencoded({
