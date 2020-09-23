@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const passport = require('passport');
 const session = require('express-session');
 
+const db =require('./config/mongoose');
 //saving the users information (don't need to login ) after server restart
 const MongoStore = require('connect-mongo')(session);
 
@@ -16,7 +17,6 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-const db =require('./config/mongoose');
 const GoogleStrategy = require('./config/googleOauth2-strategy');
 
 

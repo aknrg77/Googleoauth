@@ -19,7 +19,7 @@ passport.use(new GoogleStrategy({
     //console.log(accessToken,refreshToken);
     //console.log(profile);
 
-    // if user is found in the google database and set this request in req.user
+    // if user is found in the database and set this request in req.user
 
     if(user){
         return done(null,user);

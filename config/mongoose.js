@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/userLogin", {
+const env = require('./environment');
+
+
+mongoose.connect(env.databaseURL, {
 useUnifiedTopology: true,
 useNewUrlParser: true,
 }).then(() => console.log('DB Connected!')).catch(err => {
