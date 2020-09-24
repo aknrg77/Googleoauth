@@ -7,28 +7,6 @@ const { ensureAuth , forwardAuth } = require('../middleware/userLogin');
 
 route.get('/',forwardAuth,homeController.home);
 
-
-route.use('/profile',ensureAuth,require('./login'));
-
-route.get('/auth/google',
-passport.authenticate('google',{scope:['profile','email']})
-
-);
-
-
-route.get('/auth/google/callback',
-  passport.authenticate('google', 
-  { 
-    successRedirect: '/profile',
-    failureRedirect: '/'
-
-    })
-    
-    );
-
-
-
-
-
+route.use('/users',require('./users'));
 
 module.exports = route;

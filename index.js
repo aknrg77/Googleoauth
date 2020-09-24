@@ -5,10 +5,16 @@ require('dotenv').config();
 const bodyParser = require('body-parser')
 const passport = require('passport');
 const session = require('express-session');
+const flash = require('connect-flash');
+
+const GoogleStrategy = require('./config/googleOauth2-strategy');
+const passportLocal = require('./config/passport-local-strategy');
 
 const db =require('./config/mongoose');
+
 //saving the users information (don't need to login ) after server restart
 const MongoStore = require('connect-mongo')(session);
+
 
 
 app.use(bodyParser.urlencoded({
@@ -17,7 +23,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-const GoogleStrategy = require('./config/googleOauth2-strategy');
+
 
 
 app.use(session({
@@ -40,16 +46,18 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticatedUser);
 
+app.use(flash());
+app.use(require('./middleware/flash'));
 
 app.use(express.static('./assets'));
+const expressLayouts = require('express-ejs-layouts');
+app.use(expressLayouts);
 app.set('view engine','ejs');
 app.set('views','./views');
 
 app.use('/',require('./routes/index'));
-
 
 app.listen(port,function(req,res){
     console.log(`The app is running on the port ${port}`);

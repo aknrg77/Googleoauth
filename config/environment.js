@@ -1,11 +1,11 @@
 const development =  {
     name : 'development',
     port : 3000,
-    databaseURL :'mongodb://localhost/testAnime',
+    databaseURL :'mongodb://localhost/userLogin',
     google : {
     clientID : process.env.GOOGLE_CILENT_ID,
     clientSecret : process.env.GOOGLE_SECRET_KEY,
-    callbackURL : "http://localhost:3000/auth/google/callback"
+    callbackURL : "http://localhost:3000/users/auth/google/callback"
 
     }
 
@@ -17,7 +17,7 @@ const production = {
     google : {
         clientID : process.env.GOOGLE_CILENT_ID,
         clientSecret : process.env.GOOGLE_SECRET_KEY,
-        callbackURL : "https://google-oauth2.herokuapp.com/auth/google/callback"
+        callbackURL : "https://google-oauth2.herokuapp.com/users/auth/google/callback"
         
     
         }
